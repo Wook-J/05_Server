@@ -1,0 +1,92 @@
+웹서비스
+html/css/js를 이용하여 웹페이지를 만듦
+-> 사용자에게 보여지는 서비스
+
+html, css, js 파일들을 서버라는 곳에서 관리되고,
+그걸 사용자가 서버쪽으로 요청을 보내면,
+서버는 리소스 중 필요한 파일을 찾아서 사용자에게 응답해줌
+
+웹서비스
+- 정적 서비스 : 요청할 때마다 항상 동일한 결과 
+  -> 웹서버(HTML, CSS, JS, 이미지 등)
+  -> 웹서버의 종류 : Apache HTTP Server, Nginx...
+- 동적 서비스 : 요청에 따라 다른 결과를 나타내는 것 
+  -> WAS (로직 실행, DB 연동하여 동적결과 생성)
+  -> WAS의 종류 : Apache Tomcat(이용 예정), JBoss, WebLogic...
+  -> WAS 중 Servlet Container(★)라는 개념
+      - 배포를 위한 포트 연결 (Apache Tomcat 의 경우에는 8080을 기본으로 지정)
+      - 웹 서버 통신을 위한 소켓 관리, IO 스트림 생성해주는 역할을 함
+
+IO 스트림 생성
+- HttpServletRequest/ HttpServletResponse 라는 객체를 통해 요청 및 응답 처리를 함
+  (내부에서 InputStream/ OutputStream 있음)
+
+서블릿을 관리해주는 것 -> 서블릿 컨테이너 == WAS == 아파치 톰캣
+
+MVC 패턴 (Model View Controller)
+Model : VO, DTO, Service (자바 클래스파일을 이용했음)
+View : html, JSP (html, css, JS를 이용했음)
+Controller : 서버가 클라이언트에게 요청을 받으면 알맞은 응답을 보내는 역할
+
+(1_Servlet이란.pdf 에서 2페이지) javax.servlet.http.HttpServlet 관련
+아파치톰캣 -> 9 버전 이하에서 패키지명이 javax 이었으나,
+아파치톰캣 -> 10 버전부터는 패키지명이 jakarta 로 바뀜
+-> jakarta.servlet.http.HttpServlet 을 사용할 예정임
+
+Web.xml : 배포서술자 (Deployment Descriptor)
+
+
+클라이언트 -> 서버 요청할 때 데이터를 같이 보낼 수 있음 (pdf pp 5~6 관련)
+get방식  : URL에 그대로 노출되어 보안에 취약함
+- 게시판 조회, 뉴스기사 조회 등에 사용
+post 방식 : 데이터 전달이 주목적으로 보안 유지에 뛰어남!
+- 회원가입, 로그인 등에 사용
+
+------------------------------------------------------------------------
+★ 이클립스 환경 설정 ★
+
+Widnow - Preferences 클릭
+General : 3번 체크박스 Show heap status
+> Appearance : Colors and Fonts -> Basic -> Text Font
+> Workspace : 1번 체크박스 Refresh using native hooks or polling
+Sever
+> Runtime Environments : Add... Apache Tomcat v10.1 + 다운로드파일 추가
+
+new Project -> Dynamic Web Project > next
+Project name : (자유) ServletProject
+Target runtime : Apache Tomcat v10.1 (우리가 설정 해놓았음)
+Dynamic web module version : 6.0
+Next 클릭 :
+- src\main\java : 여기에 자바코드들(클래스)을 build\classes에 넣음(고칠필요 X)
+Next 클릭 :
+- Context root : ServletProject -> / 로 변경
+ ( http://localhost:8080/ServletProject -> http://localhost:8080/ )
+- Contesnt (아무런 액션 X) 
+- Generate web.xml deployment descriptor : 체크로 변경
+  ( 직접 만들기엔 번거로우므로 그냥 제공되는 걸 이용하기! )
+
+Window -> Show view -> Other : Package Explorer! ( Project Explorer 대신)
+- 패키지나 클래스의 구조를 계층적으로 보여줌!
+  (자바 환경을 다루기에 좀 더 적합)
+
+DynamicWebProject구조.pdf 
+6. WEB-INF가 중요함!(먼저 찾아감)
+
+Web.xml 에서 컴파일에러가 있는 경우 조치
+1. Window - Preferences : XML(Wild Web Developer)
+- Donwload external resources like referenced DTD, XSD : check
+2. Project - Clean : Clean 클릭
+
+ServletProject 폴더 자체에 마우스 우클릭 : Run as - Run On Server 클릭
+-> 이렇게 하면 src\main\webapp\WEB-INF\index.html 에 작성된 내용이 열림!
+
+-------------------------------------------------------------------------------------
+
+웹서비스 
+- 클라이언트가 서버쪽으로 요청을 하면,
+- 서버는 요청데이터를 읽어 알맞은 응답을 다시 클라이언트한테 제공함
+
+
+MVC 패턴
+(클라이언트) 요청 -> (서버) Controller -> Service -> DAO -> DB
+(서버) DB -> DAO -> Service -> Controller -> (클라이언트) 응답
