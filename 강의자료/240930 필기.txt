@@ -11,7 +11,7 @@ html, css, js 파일들을 서버라는 곳에서 관리되고,
   -> 웹서버(HTML, CSS, JS, 이미지 등)
   -> 웹서버의 종류 : Apache HTTP Server, Nginx...
 - 동적 서비스 : 요청에 따라 다른 결과를 나타내는 것 
-  -> WAS (로직 실행, DB 연동하여 동적결과 생성)
+  -> WAS (Web Application Server) (로직 실행, DB 연동하여 동적결과 생성)
   -> WAS의 종류 : Apache Tomcat(이용 예정), JBoss, WebLogic...
   -> WAS 중 Servlet Container(★)라는 개념
       - 배포를 위한 포트 연결 (Apache Tomcat 의 경우에는 8080을 기본으로 지정)
@@ -52,16 +52,16 @@ General : 3번 체크박스 Show heap status
 Sever
 > Runtime Environments : Add... Apache Tomcat v10.1 + 다운로드파일 추가
 
-new Project -> Dynamic Web Project > next
+Ctrl + N -> Dynamic Web Project > next
 Project name : (자유) ServletProject
 Target runtime : Apache Tomcat v10.1 (우리가 설정 해놓았음)
 Dynamic web module version : 6.0
 Next 클릭 :
 - src\main\java : 여기에 자바코드들(클래스)을 build\classes에 넣음(고칠필요 X)
 Next 클릭 :
-- Context root : ServletProject -> / 로 변경
+- Context root : ServletProject(가본적으로 Project name과 동일) -> / 로 변경
  ( http://localhost:8080/ServletProject -> http://localhost:8080/ )
-- Contesnt (아무런 액션 X) 
+- Content directory (아무런 액션 X) 
 - Generate web.xml deployment descriptor : 체크로 변경
   ( 직접 만들기엔 번거로우므로 그냥 제공되는 걸 이용하기! )
 
