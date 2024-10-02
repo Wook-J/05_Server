@@ -63,6 +63,7 @@
 		<li>application scope : ${applicationValue}</li>
 	</ul>
 	
+	<%-- CheckServlet(@WebServlet)와 연동 --%>
 	<a href="/el/check">객체 범위 확인페이지로 이동</a>
 	
 	<hr><hr>

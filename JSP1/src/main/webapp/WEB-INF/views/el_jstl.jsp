@@ -71,7 +71,7 @@
 	</pre>
 	
 	<h3>JSTL c:if 문 사용해보기</h3>
-	
+	<%-- 링크그대로 따라들어가면 에러발생 NumberFormatException 주소창에 "?age=~~~" 추가하기 --%>
 	<%
 		int age = Integer.parseInt(request.getParameter("age"));
 		if(age>20) { %>

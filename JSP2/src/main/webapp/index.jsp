@@ -27,7 +27,7 @@
 	
 	<%-- form 태그 method 생략 시 기본값 GET --%>
 	<%-- 2레벨로도 요청주소 작성 가능! --%>
-	<form action="/el/test1">
+	<form action="/el/test1">		<%-- ELTestServlet1(@WebServlet)와 연동 --%>
 		문자열 입력 : <input type="text" name="str"> <br>
 		정수 입력 : <input type="number" name="intNum"> <br>
 		실수 입력 : <input type="text" name="doubleNum"> <br>
@@ -44,12 +44,14 @@
 	<hr>
 	<h1>
 		<%-- a태그 클릭 시 요청은 GET방식임 --%>
+		<%-- ELTestServlet2(@WebServlet)와 연동 --%>
 		<a href="/el/scope">Servlet / JSP 범위(scope)별 내장 객체 + EL 사용법</a>
 	</h1>
 	
 	<hr>
 	
 	<h1>
+		<%-- JSTLTestServlet(@WebServlet)와 연동 --%>
 		<a href="/jstl/test"> JSTL 간단히 다뤄보기</a>
 	</h1>
 	

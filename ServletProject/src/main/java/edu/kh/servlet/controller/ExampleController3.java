@@ -12,8 +12,9 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/coffee")									// import jakarta.servlet.annotation.WebServlet;
 public class ExampleController3 extends HttpServlet{	// import jakarta.servlet.http.HttpServlet;
 	
-	@Override		// import 4개됨
+	@Override		// import 4개(HttpServletRequest, HttpServletResponse, ServletException, IOException)
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String orderer = req.getParameter("orderer");
 		String coffee = req.getParameter("coffee");
 		String type = req.getParameter("type");

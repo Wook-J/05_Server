@@ -27,13 +27,13 @@
 	</c:if>
 	
 	
-	<%-- EL 을 사용한 경우 --%>
+	<%-- JSP 스크립틀릿 을 사용한 경우 --%>
 	<%	String inputPw = request.getParameter("inputPw");
 		String inputPwCheck = request.getParameter("inputPwCheck");
 		if(inputPw.equals(inputPwCheck)){ %>
-			<h3 style="color:green;">회원가입 성공(EL 사용)</h3>
+			<h3 style="color:green;">회원가입 성공(JSP 스크립틀릿 사용)</h3>
 	<% } else{ %>
-			<h3 style="color:red;">비밀번호 불일치(EL 사용)</h3>
+			<h3 style="color:red;">비밀번호 불일치(JSP 스크립틀릿 사용)</h3>
 	<% } %>
 </body>
 </html>

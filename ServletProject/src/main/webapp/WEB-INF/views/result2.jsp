@@ -19,7 +19,7 @@
 		<%= request.getParameter("coffee") %>
 	</h3>
 	
-	<%-- 옵션이 하나도 선택안되있으면 null 로 들어옴 --%>
+	<%-- 옵션이 하나도 선택안되있으면 null (스크립틀릿으로 사용한 경우)로 들어옴 --%>
 	<% if(request.getParameterValues("opt") != null){%>
 		<ul>
 			<% for(String opt : request.getParameterValues("opt")) {%>
