@@ -1,0 +1,28 @@
+JSTL (Jsp Standard Tag Library) 을 사용하려는 경우
+- webapp/WEB-INF/lib 폴더에 jar 파일 집어넣기!!
+  (파일종류는 JSP2 프로젝트의 webapp/WEB-INF/lib 폴더 참조)
+
+- jsp파일 맨윗부분에 아래의 구문 추가!!
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+- 코딩할 때 </c:~~> 쓰기!(~~은 변경사항)
+  (JSP1 프로젝트에서 src/main/java -> ELJSTLServlet와
+   src/main/webapp/WEB-INF/views 내 jsp파일 참조)
+---------------------------------------------------------------
+
+ELTestServlet2 (request, session, application)
+  ↓위임
+scope.jsp(page) : request는 유지되고 있음
+  ↓요청
+CheckServlet : page, request는 사라짐!
+  ↓위임
+check.jsp  : session, application 이 살아있음!
+
+---------------------------------------------------------------------
+lombok을 이용하는 방법(사용하는 IDE마다 설치해줘야함!)
+1. 프로젝트 내 src/main/webapp/WEB-INF/lib 폴더에 lombok.jar파일을 넣기
+2. 이클립스(IDE 중 1개임) 실행프로그램이 있는 폴더에 lombok.jar 붙여넣기
+3. cmd 창 - 관리자 권한으로 실행 후 이클립스가 있는 lombok.jar 위치로 이동
+cd C:\tools\eclipse + enter
+java -jar lombok.jar + enter
+실행된 프로그램에서 파일찾아 eclipse 응용프로그램 누르고 install/update 클릭
