@@ -44,8 +44,8 @@ public class TodoListDAOImpl implements TodoListDAO{
 		}
 	}
 	
-	
-	@Override		// 보조메서드
+	// 보조 메서드
+	@Override		
 	public void saveFile() throws Exception{
 		// 예외는 throws 로 던져버리기 때문에 catch 문 불필요
 		// 이때 인터페이스에도 throws Exception 작성해야 함! 폭탄던지기를 끝까지 이어줘야 함
@@ -57,7 +57,7 @@ public class TodoListDAOImpl implements TodoListDAO{
 		}
 	}
 	
-	// 메서드
+	// 일반 메서드
 	@Override
 	public List<Todo> todoListFullView() {
 		return todoList;

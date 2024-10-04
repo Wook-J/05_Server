@@ -18,7 +18,7 @@
 	<h3>전체 Todo 개수 : ${fn:length(todoList)}</h3>
 					<%-- MainServlet의 requestScope --%>
 	<hr>
-	<h4>할 일 추가</h4>
+	<h4>할 일 추가</h4> <%-- TodoAddServlet의 @WebServlet과 연결 --%>
 	<form action="/todo/add" method="post" id="addForm">
 		<div>
 			제목 : <input type="text" name="title">
@@ -44,6 +44,7 @@
 					<td><a href="/todo/detail?index=${vs.index}" >${todo.title}</a></td>
 							<%-- ${vs.current.title} 도 가능!--%>
 							<%-- /todo/detail?index=n 을 가져와서 프린트하기 --%>
+							<%-- 시간되면 이부분 고민해보기 --%>
 				</tr>
 			</c:forEach>
 		</tbody>

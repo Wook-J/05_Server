@@ -30,7 +30,8 @@ public class MainServlet extends HttpServlet{
 		
 		try {
 			// Service 객체 생성
-			TodoListService service = new TodoListServiceImpl();	// 부모타입 인터페이스, 자식객체 클래스(상속)
+			TodoListService service = new TodoListServiceImpl();	
+			// 부모타입 인터페이스 = 자식객체 클래스(상속)
 			
 			// 전체 할 일 목록을 반환해줄 Service 호출해서 얻어오기
 			List<Todo> todoList = service.todoListFullView();

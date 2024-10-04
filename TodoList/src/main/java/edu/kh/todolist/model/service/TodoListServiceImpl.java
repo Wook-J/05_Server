@@ -21,7 +21,7 @@ public class TodoListServiceImpl implements TodoListService {
 	@Override
 	public List<Todo> todoListFullView() {
 		// DAO 호출
-		// 할 일 목록 얻어오기 빛 반환
+		// 할 일 목록 얻어오기 및 반환
 		List<Todo> todoList = dao.todoListFullView();
 		return todoList;
 	}
