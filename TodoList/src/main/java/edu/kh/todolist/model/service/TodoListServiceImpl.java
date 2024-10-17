@@ -35,4 +35,10 @@ public class TodoListServiceImpl implements TodoListService {
 		return dao.todoAdd(todo);
 	}
 
+	@Override	// TodoListService 강사님 풀이 이어서 -> TodoListDAO로 이동
+	public Todo todoDetailview(int index) {
+		Todo todo = dao.todoDetailView(index);
+		return todo;
+	}
+
 }

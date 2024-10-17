@@ -18,4 +18,6 @@ public interface TodoListDAO {
 	List<Todo> todoListFullView();
 
 	int todoAdd(Todo todo) throws Exception;
+
+	Todo todoDetailView(int index);		// TodoListDAOImpl 로 이동
 }

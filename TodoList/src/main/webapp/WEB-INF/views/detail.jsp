@@ -18,7 +18,8 @@
 
   <div class="btn-container">
     <div>
-      <button id="goToList">목록으로</button>
+      <button type="button" id="goToList">목록으로</button>
+      <%-- 버튼 기본 type이 submit 이어서 그냥 버튼을 만드려면 type button 으로 쓰는 게 바람직 --%>
     </div>
     
   </div>

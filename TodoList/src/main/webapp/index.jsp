@@ -6,5 +6,7 @@
 	여기서 다른 Servlet이 응답할 수 있도록 요청 위임
 	
 	" / " 요청이 오면 "/main" 서블릿으로 요청을 위임
+	
+	아래 요청은 Get 요청임!
  --%>
 <jsp:forward page="/main" />

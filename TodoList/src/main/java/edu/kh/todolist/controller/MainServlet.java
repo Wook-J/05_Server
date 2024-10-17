@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-// "/main" 요청을 매핑하여 처리하는 서블릿
+// "/main" 요청을 매핑하여 처리하는 서블릿 (== Controller)
 @WebServlet("/main")
 public class MainServlet extends HttpServlet{
 
@@ -42,7 +42,7 @@ public class MainServlet extends HttpServlet{
 			req.setAttribute("todoList", todoList);
 			
 			// 메인페이지 응답을 담당하는 jsp 에 요청 위임
-			String path = "WEB-INF/views/main.jsp";
+			String path = "/WEB-INF/views/main.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);
 			
 		} catch (Exception e) {

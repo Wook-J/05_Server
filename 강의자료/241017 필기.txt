@@ -1,0 +1,75 @@
+Serlvet 요청_응답 흐름 복습
+
+post 방식으로 id, pw 입력후 요청
+HttpServletRequest, HttpServletResponse 객체 생성
+web.xml(배포 서술자) -> 이클립스에서 파일 만들 시 next해서 체크하기!
+
+web.xml의 기본 구성
+welcome-file내 일치하는 파일이 프로젝트에 있는 지 확인하고,
+찾은 파일을 메인페이지로 만들어줌!
+
+요청 주소와 url 패턴이 일치하는 Servlet과 매핑시켜줌(보통 어노테이션 활용)
+(ServletProject에서 web.xml, ExampleController2 참고)
+
+요청을 처리할 수 있는 알맞은 Servlet(Class)으로 이동
+ Controller -> Service 단에서 데이터 가공처리 -> DAO(Date Access Object)에서
+DB에 쿼리(SQL)를 전달하고 수행 결과(Insert, Update, Delete)를 반환받는 객체
+- select -> ResultSet을/ I, U, D -> 성공행 행의 갯수를 int 타입 으로 반환
+->  그 결과를 Service에 전달 -> Controller에 전달 및 적절한 판단
+
+login 한 정보를 Session에 저장 후 코딩이 편한 JSP로 위임
+-----------------------------------------------------------------------------
+F 강의장 이수자평가 -> 심평원에서 인사3명?
+------------------------------------------------------------------------------
+Context root -> 보통 프로젝트명인데 이걸 그대로 입력하면
+localhost:8080/TodoList를 작성해야 하는 것을 고려해야 하므로 번거로움
+
+--> 그래서 localhost:8080/를 기준으로 하기 위해 Context root를 " / "로 설정!
+(최초 파일 생성 시!)
+TodoList 의 index.jsp 참고 
+바로 /main 서블릿으로 요청 위임
+why? 첫 페이지부터 데이터값이 들어가 있으므로, 요청 및 응답한 데이터가 필요함!
+
+Controller는 알맞은 Serivce를 호출하는 역할을 함!
+Service는 알맞은 DAO를 호출!
+
+-----------------------------------------------------------------------------
+jsp, css, js 모두 webapp 폴더 기준으로 경로작성하면 됨!
+-------------------------------------------------------------------------------
+
+1_JDBC개요.pptx
+
+Java와 DB를 연결할 수 있는 통로가 필요!
+이를 이어주는 역할을 하는 것이 JDBC임
+통로가 되는 객체가 Connection임!
+------------------------------------------------------------------------------------
+스프링부트에서는 ojdbc11을 이용하는 중임!
+수업에서는 ojdbc10을 이용할 예정!
+
+https://mvnrepository.com/
+오픈소스 받을 수 있는 홈페이지: ojdbc 다운용도? 말고 다른것도 있을거 같긴함
+--------------------------------------------------------------------------------
+java에서 db에 접근해서 특정 data를 얻으려고 SQL를 보내는 객체가 Statement임!
+
+Java - SQL(승객) Statement(버스) - DB
+
+PreparedStatement : 빵꾸난 SQL 문장을 전달할 때 사용하는 객체
+query에 ?가 있는 지 기준으로 구분(ppt pp8~pp9)
+
+-----------------------------------------------------------------------------
+이클립스에서 새로운 폴더(04_JDBC)를 워크스페이스로 선택!
+
+외부에서 변경사항 바로반영
+preferences - general -workspace - refresh using native hooks or polling 체크!
+
+
+new java project 만들고 맨 아래 부분에 있는
+create module-info 체크박스 해제!
+
+일반 자바프로젝트에서 외부 lib넣는 방법
+프로젝트 갖다 대고 마우스 우클릭 properties
+java build path -> libraries 클릭
+classpath 선택 - add external jars 클릭
+C:\tools\ojdbc10-full 에 ojdbc10.jar 선택 후 열기!
+apply and close 클릭
+
