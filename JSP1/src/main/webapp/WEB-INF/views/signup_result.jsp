@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>회원 강비 결과 페이지 입니다</h1>
+	<h1>회원 가입 결과 페이지 입니다</h1>
 	<h3>입력되어 전달된 값들</h3>
 	<ul>
 		<li>ID : ${param.inputId}</li>
